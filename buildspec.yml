@@ -6,8 +6,12 @@ phases:
   build:
     commands:
       - echo"Enter the build phase"
-      - mvn clean prepare
+      - mvn clean prepare-pacage war:explode
 
   post_build:
     commands:
       - echo"Entered the post_build phase"
+      - mv target/deploy ./
+  artifacts:
+    files:
+    -deploy/**/*
